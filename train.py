@@ -29,7 +29,6 @@ SEED = args.seed
 
 
 def load_csv(path):
-    """Загрузка данных из CSV файла и бинаризация целевого признака"""
     with open(path, newline='', encoding='utf-8') as f:
         rows = list(csv.reader(f))
     try:
@@ -42,14 +41,12 @@ def load_csv(path):
 
 
 def one_hot(y):
-    """Преобразование меток классов в формат One-Hot encoding."""
     result = np.zeros((len(y), 2))
     result[np.arange(len(y)), y] = 1
     return result
 
 
 def standardize_train(X):
-    """Z-score нормализация признаков """
     mean = X.mean(axis=0)
     std = X.std(axis=0)
     std[std == 0] = 1
@@ -57,7 +54,6 @@ def standardize_train(X):
 
 
 def accuracy(y_true, y_pred):
-    """Вычисление метрики точности (Accuracy)."""
     return np.mean(y_true == y_pred)
 
 os.makedirs(os.path.dirname(MODEL_FILE) or '.', exist_ok=True)
