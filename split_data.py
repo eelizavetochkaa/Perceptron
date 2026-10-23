@@ -50,7 +50,6 @@ def main():
     print(f'Размер обучающей выборки (Train): {len(train)}')
     print(f'Размер валидационной выборки (Validation): {len(validation)}')
     print(f'Значение Seed для рандома: {SEED}')
-    print('Успешно! Файлы сохранены: data/train.csv и data/validation.csv')
 
 if __name__ == '__main__':
     main()
